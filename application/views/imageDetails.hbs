@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../public/stylesheets/styles.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+	<title>Home Page</title>
+</head>
+
+<body>
+	{{> navbar}}
+	<div class="flex flex-col px-5 max-w-4xl mx-auto">
+		<h2 class="font-bold text-2xl my-5">Image Details</h2>
+		<img class="w-96 h-full object-cover" src='../{{image.path}}' alt="">
+		<h3 class="font-bold text-lg mt-10">Comments</h3>
+		{{#each comments}}
+		<hr>
+		<div class="flex flex-col my-2">
+			<h2 class="font-bold">{{this.username}}</h2>
+			<p class="text-sm">{{this.content}}</p>
+		</div>
+		<hr>
+		{{/each}}
+
+		<form action="/comment" class="flex w-full justify-between" method="POST">
+			<input name="content" class="my-2 px-3 py-2 outline-none bg-gray-200 rounded-sm w-6/12" placeholder="Comment"
+				type="text" />
+			<input name="imageId" value="{{image.id}}" type="hidden" />
+			<button type="submit" class="bg-blue-500 rounded-sm my-2 px-2">Add Comment</button>
+		</form>
+	</div>
+	{{>footer}}
+</body>
+
+</html>
