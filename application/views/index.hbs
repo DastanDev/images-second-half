@@ -19,7 +19,7 @@
 		<input name="search" class="mx-auto bg-gray-200 rounded-sm px-4 py-2 outline-none" placeholder="Search"
 			type="text" />
 	</form>
-	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 p-5 gap-1">
+	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 max-w-5xl p-5 gap-5 mx-auto">
 		{{#each images}}
 		<a href='/images/{{this.id}}'>
 			<img src={{this.path}} alt="fake-img" />
