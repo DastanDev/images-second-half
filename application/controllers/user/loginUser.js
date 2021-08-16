@@ -28,7 +28,7 @@ const loginUser = async (req, res) => {
         //
         if (!passwordMatches) {
           console.log(colors.red('incorrect password...'))
-          res.redirect('/login?message=Password incorrect.')
+          res.redirect('/login?message=Incorrect password.')
           return
         }
         //

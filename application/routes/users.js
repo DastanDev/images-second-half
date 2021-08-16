@@ -4,6 +4,7 @@ const createNewUser = require('../controllers/user/createNewUser')
 const loginUser = require('../controllers/user/loginUser')
 
 // create new user
+// /users/create
 router.post('/create', createNewUser)
 
 // login user

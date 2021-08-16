@@ -5,7 +5,12 @@ const colors = require('colors')
 
 // HOME PAGE
 const getAllImages = async (req, res) => {
-  db.query('SELECT * FROM Image', (err, images) => {
+  const { message } = req.query
+  const { search } = req.query
+  const dbQuery = search
+    ? `select * from Image where name like concat('%', '${search}', '%') order by name like concat('${search}', '%') desc, ifnull(nullif(instr(name, concat(' ', '${search}')), 0), 99999), ifnull(nullif(instr(name, '${search}'), 0), 99999), name;`
+    : `SELECT * FROM Image`
+  db.query(dbQuery, (err, images) => {
     if (err) {
       console.log(colors.red(err.message))
       res.render('error', {
@@ -15,7 +20,7 @@ const getAllImages = async (req, res) => {
       })
       return
     }
-    res.render('index', { images, user: req.user })
+    res.render('index', { images, user: req.user, title: 'Home', message })
   })
 }
 

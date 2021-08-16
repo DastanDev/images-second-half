@@ -11,7 +11,14 @@
 
 <body>
 	{{> navbar}}
-	
+
+	<div class="text-xs text-red-500 px-5 pt-5">
+		{{message}}
+	</div>
+	<form class="flex" action="/" method="GET">
+		<input name="search" class="mx-auto bg-gray-200 rounded-sm px-4 py-2 outline-none" placeholder="Search"
+			type="text" />
+	</form>
 	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 p-5 gap-1">
 		{{#each images}}
 		<a href='/images/{{this.id}}'>
