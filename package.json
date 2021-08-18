@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node application/bin/www",
-    "dev": "nodemon application/bin/www"
+    "dev": "nodemon application/bin/www",
+    "proj-init": "node application/proj-init.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
