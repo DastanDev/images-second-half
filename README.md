@@ -22,3 +22,4 @@ Add these variables inside the .env file:
 
 - Run `npm start` (for production)
 - Run `npm run dev` (for development)
+- Go to `http://localhost:5000` to access the web app.
