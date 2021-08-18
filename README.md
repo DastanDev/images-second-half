@@ -2,54 +2,23 @@
 
 ## Build Instructions
 
-### Create the tables
+- Run `npm install`
 
-User Table:
+### Initiate the project
 
-```sql
-CREATE TABLE User(
-id int AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(240) NOT NULL UNIQUE,
-password VARCHAR(200) NOT NULL
-);
-```
-
-Image Table:
-
-```sql
-CREATE TABLE Image(
-id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-path VARCHAR(1000) NOT NULL,
-name VARCHAR(240) NOT NULL,
-user INT NOT NULL,
-FOREIGN KEY (user) REFERENCES User(id)
-);
-```
-
-Comment Table:
-
-```sql
-CREATE TABLE Comment(
-id INT PRIMARY KEY AUTO_INCREMENT,
-author INT NOT NULL,
-content VARCHAR(1000) NOT NULL,
-image INT NOT NULL,
-FOREIGN KEY(author) REFERENCES User(id),
-FOREIGN KEY(image) REFERENCES Image(id)
-);
-```
+Before initiating the project please make sure you have the right configurations selected inside `application/proj-init.js` once you changed the right configurations, in the root directory run `npm run proj-init` The tables should be created and you should see `All tables created` when the process exits.
 
 Create .env file in the root directory.
 
 Add these variables inside the .env file:
 
-- JWT_SECRET=<something_secret>
-- DB_HOST=<your_host>
-- DB_USER=<database_user>
-- DB_PASSWORD=<database_user_password>
-- DB=<database_name>
+- `JWT_SECRET=<something_secret>`
+- `DB_HOST=<database_host>`
+- `DB_USER=<database_user>`
+- `DB_PASSWORD=<database_password>`
+- `DB=<database_name>`
 
 ## Run Instructions
 
-npm install
-npm start
+- Run `npm start` (for production)
+- Run `npm run dev` (for development)
